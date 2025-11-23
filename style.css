@@ -1,0 +1,606 @@
+:root {
+    --primary-color: #4c8bff;
+    --secondary-color: #6c757d;
+    --success-color: #28a745;
+    --danger-color: #dc3545;
+    --warning-color: #ffc107;
+    --info-color: #17a2b8;
+    --light-bg: #f8f9fa;
+    --dark-text: #343a40;
+    --border-color: #dee2e6;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    direction: rtl;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    padding: 10px;
+    background: #f0f2f5;
+    min-height: 100vh;
+    color: var(--dark-text);
+    line-height: 1.5;
+    font-size: 16px;
+}
+
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    background: white;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+#controls {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+    justify-content: center;
+}
+
+.btn {
+    padding: 12px 16px;
+    font-size: 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    font-family: inherit;
+    font-weight: 500;
+    flex: 1;
+    min-width: 0;
+    touch-action: manipulation;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:active {
+    background: #3a7bff;
+}
+
+.btn-secondary {
+    background: var(--secondary-color);
+    color: white;
+}
+
+.btn-secondary:active {
+    background: #5a6268;
+}
+
+.btn-success {
+    background: var(--success-color);
+    color: white;
+}
+
+.btn-success:active {
+    background: #218838;
+}
+
+.btn-info {
+    background: var(--info-color);
+    color: white;
+}
+
+.btn-info:active {
+    background: #138496;
+}
+
+.btn-danger {
+    background: var(--danger-color);
+    color: white;
+}
+
+.btn-danger:active {
+    background: #c82333;
+}
+
+.btn-type {
+    background: var(--light-bg);
+    border: 2px solid var(--border-color);
+    padding: 16px 12px;
+    text-align: right;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    font-family: inherit;
+    font-size: 15px;
+}
+
+.btn-type:active {
+    border-color: var(--primary-color);
+    transform: translateX(-5px);
+    background: white;
+}
+
+/* کیبورد موبایل فرندلی */
+#keyboard {
+    position: fixed;
+    bottom: -100%;
+    left: 0;
+    right: 0;
+    background: white;
+    transition: bottom 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1000;
+    width: 100%;
+    box-shadow: 0 -5px 25px rgba(0,0,0,0.15);
+    border-radius: 20px 20px 0 0;
+    padding-bottom: env(safe-area-inset-bottom);
+}
+
+#keyboard.active {
+    bottom: 0;
+}
+
+.keyboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid var(--border-color);
+    background: var(--light-bg);
+    border-radius: 20px 20px 0 0;
+}
+
+.keyboard-header span {
+    font-weight: 600;
+    color: var(--dark-text);
+}
+
+.keyboard-rows {
+    padding: 10px;
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+.keyboard-row {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+    margin-bottom: 8px;
+}
+
+.btn-keyboard {
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 14px 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex: 1;
+    min-width: 0;
+    font-weight: 600;
+    font-family: inherit;
+    touch-action: manipulation;
+}
+
+.btn-keyboard:active {
+    background: #5a6268;
+    transform: scale(0.95);
+}
+
+.btn-keyboard.backspace {
+    background: var(--danger-color);
+    flex: 2;
+}
+
+.btn-keyboard.backspace:active {
+    background: #c82333;
+}
+
+.btn-keyboard.space {
+    background: var(--primary-color);
+    flex: 3;
+}
+
+.btn-keyboard.space:active {
+    background: #3a7bff;
+}
+
+.btn-close {
+    background: var(--danger-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 500;
+}
+
+.btn-close:active {
+    background: #c82333;
+    transform: scale(0.95);
+}
+
+#kbBtn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    padding: 16px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    z-index: 1001;
+    transition: all 0.3s ease;
+    font-size: 20px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: inherit;
+    touch-action: manipulation;
+}
+
+#kbBtn:active {
+    transform: scale(1.1) rotate(10deg);
+}
+
+#kbBtn.active {
+    background: var(--danger-color);
+    transform: rotate(90deg);
+}
+
+/* استایل‌های عمومی */
+.step-container {
+    background: var(--light-bg);
+    padding: 20px;
+    border-radius: 12px;
+    margin: 15px 0;
+    border-right: 4px solid var(--primary-color);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--dark-text);
+    font-size: 15px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 14px 16px;
+    font-size: 16px;
+    margin: 8px 0;
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    background: white;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(76, 139, 255, 0.1);
+}
+
+textarea.form-input {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.button-group .btn {
+    flex: 1;
+    min-width: 120px;
+}
+
+/* پیام‌ها */
+.message {
+    padding: 15px;
+    border-radius: 10px;
+    margin: 15px 0;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.error-message {
+    background: #fee;
+    border: 2px solid var(--danger-color);
+    color: var(--danger-color);
+}
+
+.success-message {
+    background: #efe;
+    border: 2px solid var(--success-color);
+    color: var(--success-color);
+}
+
+.warning-message {
+    background: #fff3cd;
+    border: 2px solid var(--warning-color);
+    color: #856404;
+}
+
+.info-message {
+    background: #d1ecf1;
+    border: 2px solid var(--info-color);
+    color: #0c5460;
+}
+
+/* لیست مجموعه‌ها */
+.sets-list {
+    background: white;
+    border: 2px solid var(--primary-color);
+    border-radius: 12px;
+    padding: 20px;
+    margin: 15px 0;
+}
+
+.set-item {
+    background: var(--light-bg);
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 10px;
+    border-right: 4px solid var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.set-item:active {
+    transform: translateX(-5px);
+}
+
+.set-name {
+    font-weight: bold;
+    color: var(--primary-color);
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.set-content {
+    color: var(--dark-text);
+    font-family: monospace;
+    background: white;
+    padding: 12px;
+    border-radius: 8px;
+    margin: 8px 0;
+    border: 1px solid var(--border-color);
+    font-size: 15px;
+    word-break: break-word;
+}
+
+.set-expression, .set-description {
+    color: var(--dark-text);
+    background: white;
+    padding: 12px;
+    border-radius: 8px;
+    margin: 8px 0;
+    border: 1px solid var(--border-color);
+    font-size: 15px;
+    word-break: break-word;
+    line-height: 1.5;
+}
+
+.set-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+
+.set-actions .btn {
+    flex: 1;
+    min-width: 0;
+}
+
+/* عملیات */
+.operations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.btn-operation {
+    background: var(--light-bg);
+    border: 2px solid var(--border-color);
+    padding: 20px 15px;
+    text-align: right;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    border: none;
+    font-family: inherit;
+    font-size: 15px;
+    touch-action: manipulation;
+}
+
+.btn-operation:active {
+    border-color: var(--primary-color);
+    transform: translateX(-5px);
+    background: white;
+}
+
+/* مثال‌ها */
+.examples {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 15px 0;
+    border: 2px solid var(--border-color);
+}
+
+.examples strong {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.examples ul {
+    padding-right: 20px;
+    margin: 0;
+}
+
+.examples li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+    font-size: 14px;
+}
+
+/* رسپانسیو پیشرفته */
+@media (max-width: 480px) {
+    body {
+        padding: 8px;
+        font-size: 15px;
+    }
+    
+    .container {
+        padding: 12px;
+        border-radius: 10px;
+    }
+    
+    header h1 {
+        font-size: 1.3rem;
+        margin-bottom: 12px;
+    }
+    
+    #controls {
+        flex-direction: column;
+        gap: 6px;
+    }
+    
+    .btn {
+        padding: 14px 12px;
+        font-size: 14px;
+    }
+    
+    .step-container {
+        padding: 15px;
+        margin: 10px 0;
+    }
+    
+    .form-input {
+        padding: 12px 14px;
+        font-size: 16px; /* جلوگیری از زوم در iOS */
+    }
+    
+    .keyboard-row {
+        gap: 4px;
+        margin-bottom: 6px;
+    }
+    
+    .btn-keyboard {
+        padding: 12px 6px;
+        font-size: 15px;
+    }
+    
+    .operations-grid {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+    
+    .btn-operation {
+        padding: 16px 12px;
+        font-size: 14px;
+    }
+    
+    .set-item {
+        padding: 15px;
+        margin: 10px 0;
+    }
+    
+    #kbBtn {
+        width: 55px;
+        height: 55px;
+        font-size: 18px;
+        bottom: 15px;
+        left: 15px;
+    }
+    
+    .button-group {
+        flex-direction: column;
+    }
+    
+    .button-group .btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 360px) {
+    .btn-keyboard {
+        font-size: 14px;
+        padding: 10px 4px;
+    }
+    
+    .keyboard-header {
+        padding: 12px 15px;
+    }
+    
+    .keyboard-rows {
+        padding: 8px;
+    }
+}
+
+/* جلوگیری از زوم در iOS هنگام فوکوس */
+@media (max-device-width: 480px) {
+    select.form-input,
+    textarea.form-input,
+    input.form-input[type="text"] {
+        font-size: 16px !important;
+    }
+}
+
+/* بهبود اسکرول در موبایل */
+.step-container {
+    -webkit-overflow-scrolling: touch;
+}
+
+/* هایلایت لمسی بهتر */
+@media (hover: none) and (pointer: coarse) {
+    .btn:hover {
+        transform: none;
+    }
+    
+    .btn:active {
+        transform: scale(0.95);
+    }
+}

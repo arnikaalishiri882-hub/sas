@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>آزمایشگاه مجموعه‌ها</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>آزمایشگاه مجموعه‌ها</h1>
+        </header>
+
+        <main>
+            <section id="controls">
+                <button id="startBtn" class="btn btn-primary">شروع عملیات</button>
+                <button id="showSetsBtn" class="btn btn-secondary">نمایش مجموعه‌ها</button>
+                <button id="addSetBtn" class="btn btn-success">➕ مجموعه جدید</button>
+            </section>
+
+            <section id="step">
+                <!-- محتوای پویا -->
+            </section>
+
+            <section id="sets-list" class="sets-list" style="display: none;">
+                <!-- لیست مجموعه‌ها -->
+            </section>
+        </main>
+    </div>
+
+    <!-- کیبورد ریاضی - نسخه موبایل -->
+    <div id="keyboard" class="keyboard">
+        <div class="keyboard-header">
+            <span>کیبورد ریاضی</span>
+            <button type="button" onclick="toggleKB()" class="btn-close">✖ بستن</button>
+        </div>
+        
+        <div class="keyboard-rows">
+            <!-- ردیف 1 -->
+            <div class="keyboard-row">
+                <button type="button" data-symbol="1" class="btn-keyboard">1</button>
+                <button type="button" data-symbol="2" class="btn-keyboard">2</button>
+                <button type="button" data-symbol="3" class="btn-keyboard">3</button>
+                <button type="button" data-symbol="4" class="btn-keyboard">4</button>
+                <button type="button" data-symbol="5" class="btn-keyboard">5</button>
+            </div>
+            
+            <!-- ردیف 2 -->
+            <div class="keyboard-row">
+                <button type="button" data-symbol="6" class="btn-keyboard">6</button>
+                <button type="button" data-symbol="7" class="btn-keyboard">7</button>
+                <button type="button" data-symbol="8" class="btn-keyboard">8</button>
+                <button type="button" data-symbol="9" class="btn-keyboard">9</button>
+                <button type="button" data-symbol="0" class="btn-keyboard">0</button>
+            </div>
+
+            <!-- ردیف 3 -->
+            <div class="keyboard-row">
+                <button type="button" data-symbol="∪" class="btn-keyboard">∪</button>
+                <button type="button" data-symbol="∩" class="btn-keyboard">∩</button>
+                <button type="button" data-symbol="−" class="btn-keyboard">−</button>
+                <button type="button" data-symbol="∈" class="btn-keyboard">∈</button>
+                <button type="button" data-symbol="∉" class="btn-keyboard">∉</button>
+            </div>
+            
+            <!-- ردیف 4 -->
+            <div class="keyboard-row">
+                <button type="button" data-symbol="⊂" class="btn-keyboard">⊂</button>
+                <button type="button" data-symbol="⊆" class="btn-keyboard">⊆</button>
+                <button type="button" data-symbol="∅" class="btn-keyboard">∅</button>
+                <button type="button" data-symbol="ℕ" class="btn-keyboard">ℕ</button>
+                <button type="button" data-symbol="𝕎" class="btn-keyboard">𝕎</button>
+            </div>
+            
+            <!-- ردیف 5 -->
+            <div class="keyboard-row">
+                <button type="button" data-symbol="ℤ" class="btn-keyboard">ℤ</button>
+                <button type="button" data-symbol="ℚ" class="btn-keyboard">ℚ</button>
+                <button type="button" data-symbol="ℝ" class="btn-keyboard">ℝ</button>
+                <button type="button" data-symbol="√" class="btn-keyboard">√</button>
+                <button type="button" data-symbol="π" class="btn-keyboard">π</button>
+            </div>
+
+            <!-- ردیف 6 -->
+            <div class="keyboard-row">
+                <button type="button" data-symbol="{" class="btn-keyboard">{</button>
+                <button type="button" data-symbol="}" class="btn-keyboard">}</button>
+                <button type="button" data-symbol="(" class="btn-keyboard">(</button>
+                <button type="button" data-symbol=")" class="btn-keyboard">)</button>
+                <button type="button" data-symbol="," class="btn-keyboard">,</button>
+            </div>
+
+            <!-- ردیف 7 -->
+            <div class="keyboard-row">
+                <button type="button" data-symbol="|" class="btn-keyboard">|</button>
+                <button type="button" data-symbol="∞" class="btn-keyboard">∞</button>
+                <button type="button" id="backspaceBtn" class="btn-keyboard backspace">⌫ پاک کن</button>
+                <button type="button" id="spaceBtn" class="btn-keyboard space">فاصله</button>
+            </div>
+        </div>
+    </div>
+
+    <button type="button" id="kbBtn" class="kb-toggle">⌨️</button>
+
+    <script src="script.js"></script>
+</body>
+</html>
